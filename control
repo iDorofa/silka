@@ -1,0 +1,15 @@
+import socket
+
+TARGET_IP = "ip" 
+PORT = 5555
+
+def send(url):
+    client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    client.connect((TARGET_IP, PORT))
+    client.send(url.encode('utf-8'))
+    client.close()
+
+
+if __name__ == "__main__":
+    site = ("https://www.google.com/")
+    send(site)
